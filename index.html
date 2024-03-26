@@ -1,1 +1,89 @@
 
+<html>
+<head>
+	<title>Analog Clock</title>
+	<link rel="icon" href="./img.jpg">
+	<style>
+        #clockContainer {
+	position: relative;
+	margin: auto;
+	height: 40vw;
+	/*to make the height and width responsive*/
+	width: 40vw;
+	background: url(./img.jpg) no-repeat;
+	border-radius: 100%;
+	/*setting our background image*/
+	background-size: 100%;
+}
+
+#hour,
+#minute,
+#second {
+	position: absolute;
+	background: #000;
+	border-radius: 10px;
+	transform-origin: bottom;
+}
+
+#hour {
+	width: 1.8%;
+	height: 25%;
+	top: 25%;
+	left: 48.85%;
+	opacity: 0.8;
+}
+
+#minute {
+	width: 1.6%;
+	height: 30%;
+	top: 19%;
+	left: 48.9%;
+	opacity: 0.8;
+}
+
+#second {
+	width: 1%;
+	height: 40%;
+	top: 9%;
+	left: 49.25%;
+	opacity: 0.8;
+}
+
+    </style>
+ 
+</head>
+<body id="box">
+	
+	<div id="clockContainer">
+		<div id="hour"></div>
+		<div id="minute"></div>
+		<div id="second"></div>
+	</div>
+    <script>
+		titlearr=["red","yellow","green","pink","orange","black","blue","white"]
+		i=0;
+        setInterval(()=>{
+			var date = new Date();
+            var hr = date.getHours();
+            var min = date.getMinutes();
+            var sec = date.getSeconds();
+            
+			hh=(hr*30)+min*1/2;
+            second.style.transform="rotate("+sec*6+"deg)";
+            minute.style.transform="rotate("+min*6+"deg)";
+            hour.style.transform="rotate("+hh+"deg)";
+			
+			document.title.value.innerHTML=titlearr[i];
+			// if(i<titlearr.length){
+				// ss.innerHTML=titlearr[i];
+				// 	i++;
+				// 	box.style.backgroundColor=titlearr[i];
+				// }else{
+					// 	i=0;
+					// 	box.style.backgroundColor=titlearr[i];
+					// }
+			   		// hour.style.transform=`rotate(${hh}deg)`;
+        },1000)
+    </script>
+</body>
+</html>
